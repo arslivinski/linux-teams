@@ -22,7 +22,7 @@ $ npm start
 As the focus here is to create a Linux application, I'm not testing against other operational systems like Windows or macOS. However, should be no problem to run this application on these OS.
 
 ## TODO
-  - [ ] Set the application name
+  - [x] <del>Set the application name</del>
   - [ ] Set an icon
   - [ ] Create a custom menu
   - [ ] Tray icon
