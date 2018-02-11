@@ -21,6 +21,17 @@ $ npm start
 
 As the focus here is to create a Linux application, I'm not testing against other operational systems like Windows or macOS. However, should be no problem to run this application on these OS.
 
+## TODO
+  - [ ] Set the application name
+  - [ ] Set an icon
+  - [ ] Create a custom menu
+  - [ ] Tray icon
+  - [ ] Make tray icon clickable
+  - [ ] Display native notifications
+  - [ ] Make notifications clickable
+  - [ ] Create hotkeys
+  - [ ] Release Linux packages
+
 ## Licence
 This project is licensed under the terms of the MIT license.
 
