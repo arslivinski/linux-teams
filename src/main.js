@@ -1,4 +1,7 @@
+'use strict'
+
 const {app, BrowserWindow} = require('electron')
+const path = require('path')
 
 let mainWindow
 
@@ -8,7 +11,8 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: false
+      nodeIntegration: false,
+      preload: path.join(__dirname, 'browser.js')
     }
   })
 
