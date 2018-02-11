@@ -1,0 +1,35 @@
+{
+  "name": "linux-teams",
+  "version": "1.0.0",
+  "description": "An unofficial Microsoft Teams application for Linux",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "eslint --ext .js src"
+  },
+  "devDependencies": {
+    "electron": "1.8.2",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "author": "Anderson Slivinski <arslivinski@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/arslivinski/linux-teams#readme",
+  "bugs": {
+    "url": "https://github.com/arslivinski/linux-teams/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arslivinski/linux-teams.git"
+  },
+  "keywords": [
+    "Microsoft Teams",
+    "Teams",
+    "Linux",
+    "Electron"
+  ]
+}
