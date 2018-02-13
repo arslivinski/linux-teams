@@ -12,6 +12,7 @@ let tray
 function createWindow () {
   mainWindow = new BrowserWindow({
     icon: path.join(__dirname, '..', 'assets', 'icons', '48x48.png'),
+    backgroundColor: '#5458AF',
     autoHideMenuBar: true,
     width: 800,
     height: 600,
