@@ -23,7 +23,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
 
 ## TODO
   - [x] <del>Set the application name</del>
-  - [ ] Set an icon
+  - [x] <del>Set an icon</del>
   - [ ] Create a custom menu
   - [ ] Tray icon
   - [ ] Make tray icon clickable
