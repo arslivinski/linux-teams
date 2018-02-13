@@ -24,7 +24,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
 ## TODO
   - [x] <del>Set the application name</del>
   - [x] <del>Set an icon</del>
-  - [ ] Create a custom menu
+  - [x] <del>Create a custom menu</del>
   - [ ] Tray icon
   - [ ] Make tray icon clickable
   - [ ] Display native notifications
@@ -37,5 +37,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
 
 ## Licence
 This project is licensed under the terms of the MIT license.
+
+Microsoft, Microsoft Teams, Microsoft Teams logo are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries.
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)

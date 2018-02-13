@@ -1,7 +1,8 @@
 'use strict'
 
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
+const menu = require('./menu')
 
 let mainWindow
 
@@ -26,6 +27,8 @@ function createWindow () {
   )
 
   mainWindow.loadURL('https://teams.microsoft.com')
+
+  Menu.setApplicationMenu(menu)
 }
 
 app.on('ready', createWindow)

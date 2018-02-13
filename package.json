@@ -8,6 +8,10 @@
     "start": "electron .",
     "test": "eslint --ext .js src"
   },
+  "dependencies": {
+    "electron-about-window": "^1.9.1",
+    "open": "0.0.5"
+  },
   "devDependencies": {
     "electron": "1.8.2",
     "eslint": "^4.17.0",
