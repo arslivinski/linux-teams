@@ -1,10 +1,13 @@
 'use strict'
 
-const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
+const packgeJson = require('../package.json')
 const menu = require('./menu')
+const trayMenu = require('./tray-menu')
 
 let mainWindow
+let tray
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -28,7 +31,17 @@ function createWindow () {
 
   mainWindow.loadURL('https://teams.microsoft.com')
 
+  // Setting the application menu, hidden by default
   Menu.setApplicationMenu(menu)
+
+  // Setting tray icon
+  tray = new Tray(path.join(__dirname, '..', 'assets', 'icons', '32x32.png'))
+  tray.setToolTip(packgeJson.productName)
+  tray.setContextMenu(trayMenu)
+  tray.on('click', () => {
+    mainWindow.show()
+    mainWindow.focus()
+  })
 }
 
 app.on('ready', createWindow)

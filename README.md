@@ -25,8 +25,9 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [x] <del>Set the application name</del>
   - [x] <del>Set an icon</del>
   - [x] <del>Create a custom menu</del>
-  - [ ] Tray icon
-  - [ ] Make tray icon clickable
+  - [x] <del>Tray icon</del>
+  - [x] <del>Make tray icon clickable</del>
+  - [ ] Change icon tray when there are unread notifications
   - [ ] Display native notifications
   - [ ] Make notifications clickable
   - [ ] Create hotkeys
