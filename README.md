@@ -30,7 +30,10 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [ ] Display native notifications
   - [ ] Make notifications clickable
   - [ ] Create hotkeys
+  - [ ] Manage window size correctly
+  - [ ] Context menu
   - [ ] Release Linux packages
+  - [ ] Add auto-update
 
 ## Licence
 This project is licensed under the terms of the MIT license.
