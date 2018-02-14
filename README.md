@@ -1,4 +1,5 @@
-# <img src="linux-teams.svg" alt="Logo" width="128" height="128"> Linux Teams
+<img src="linux-teams.svg" alt="Logo" width="128" height="128">
+# Linux Teams
 Linux Teams is an unofficial Microsoft Teams application for Linux.
 
 ## Why?

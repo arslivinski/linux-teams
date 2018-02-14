@@ -32,5 +32,8 @@
     "Teams",
     "Linux",
     "Electron"
-  ]
+  ],
+  "dependencies": {
+    "lodash.merge": "^4.6.1"
+  }
 }
