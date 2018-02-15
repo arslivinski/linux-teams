@@ -35,6 +35,7 @@ app.on('ready', () => {
 
   this.window.loadURL('https://teams.microsoft.com')
   this.window.setMenu(this.menuBar)
+  this.window.on('page-title-updated', (e, title) => updateTray(title))
   windowState.manage(this.window)
 
   this.tray.on('click', () => {
@@ -47,3 +48,12 @@ ipc.on('notification-clicked', () => {
   this.window.show()
   this.window.focus()
 })
+
+const updateTray = (title) => {
+  const count = title.match(/\d+/g) ? parseInt(title.match(/\d+/g).join('')) : 0
+  if (count > 0) {
+    this.tray.setImage(Icon.unread)
+  } else {
+    this.tray.setImage(Icon.tray)
+  }
+}

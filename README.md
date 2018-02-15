@@ -29,7 +29,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [x] <del>Create a custom menu</del>
   - [x] <del>Tray icon</del>
   - [x] <del>Make tray icon clickable</del>
-  - [ ] Change icon tray when there are unread notifications
+  - [x] <del>Change icon tray when there are unread notifications</del>
   - [x] <del>Display native notifications</del>
   - [x] <del>Make notifications clickable</del>
   - [x] <del>Manage window size correctly</del>
