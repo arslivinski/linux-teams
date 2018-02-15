@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const {app, ipcMain: ipc} = require('electron')
+const {app, ipcMain: ipc, shell} = require('electron')
 const windowStateManager = require('electron-window-state')
 const Window = require('./Window')
 const Tray = require('./Tray')
@@ -36,7 +36,8 @@ app.on('ready', () => {
 
   this.window.loadURL('https://teams.microsoft.com')
   this.window.setMenu(this.menuBar)
-  this.window.on('page-title-updated', (e, title) => updateTray(title))
+  this.window.on('page-title-updated', updateTray)
+  this.window.webContents.on('new-window', handleRedirect)
   windowState.manage(this.window)
 
   this.tray.on('click', () => {
@@ -50,11 +51,18 @@ ipc.on('notification-clicked', () => {
   this.window.focus()
 })
 
-const updateTray = (title) => {
+const updateTray = (event, title) => {
   const count = title.match(/\d+/g) ? parseInt(title.match(/\d+/g).join('')) : 0
   if (count > 0) {
     this.tray.setImage(Icon.unread)
   } else {
     this.tray.setImage(Icon.tray)
+  }
+}
+
+const handleRedirect = (event, url) => {
+  if (url !== this.window.webContents.getURL()) {
+    event.preventDefault()
+    shell.openExternal(url)
   }
 }
