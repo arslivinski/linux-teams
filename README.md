@@ -34,8 +34,8 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [x] <del>Make notifications clickable</del>
   - [x] <del>Manage window size correctly</del>
   - [x] <del>Context menu</del>
+  - [ ] Open links on default browser
   - [ ] Release Linux packages
-  - [ ] Add auto-update
 
 ## Licence
 This project is licensed under the terms of the MIT license.

@@ -7,19 +7,19 @@ const Window = require('./Window')
 const Tray = require('./Tray')
 const ContextMenuTray = require('./menu/ContexMenuTray')
 const MenuBar = require('./menu/MenuBar')
-const Icon = require('./Icon')
 const {productName} = require('../package.json')
 require('electron-context-menu')()
 
 const preload = path.join(__dirname, 'Browser.js')
 
-global.appIcon = `file://${Icon.app}`
+global.appIcon = path.join(__dirname, '..', 'assets', 'app.png')
+global.unreadIcon = path.join(__dirname, '..', 'assets', 'unread.png')
 
 app.on('ready', () => {
   const windowState = windowStateManager()
 
   this.window = new Window({
-    icon: Icon.app,
+    icon: global.appIcon,
     backgroundColor: '#5458AF',
     x: windowState.x,
     y: windowState.y,
@@ -31,7 +31,7 @@ app.on('ready', () => {
   })
 
   this.contexMenuTray = new ContextMenuTray()
-  this.tray = new Tray({icon: Icon.tray, toolTip: productName, contextMenu: this.contexMenuTray})
+  this.tray = new Tray({icon: global.appIcon, toolTip: productName, contextMenu: this.contexMenuTray})
   this.menuBar = new MenuBar()
 
   this.window.loadURL('https://teams.microsoft.com')
@@ -46,6 +46,8 @@ app.on('ready', () => {
   })
 })
 
+app.on('window-all-closed', app.quit)
+
 ipc.on('notification-clicked', () => {
   this.window.show()
   this.window.focus()
@@ -54,9 +56,9 @@ ipc.on('notification-clicked', () => {
 const updateTray = (event, title) => {
   const count = title.match(/\d+/g) ? parseInt(title.match(/\d+/g).join('')) : 0
   if (count > 0) {
-    this.tray.setImage(Icon.unread)
+    this.tray.setImage(global.unreadIcon)
   } else {
-    this.tray.setImage(Icon.tray)
+    this.tray.setImage(global.appIcon)
   }
 }
 

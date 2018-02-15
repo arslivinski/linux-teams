@@ -21,7 +21,7 @@ function displayNativeNotification (event, callback) {
   const appIcon = require('electron').remote.getGlobal('appIcon')
   const options = {
     body: event.message,
-    icon: appIcon,
+    icon: `file://${appIcon}`,
     sticky: true
   }
   const notification = new Notification(event.title, options)

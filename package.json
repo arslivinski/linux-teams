@@ -6,16 +6,50 @@
   "main": "app/App.js",
   "scripts": {
     "start": "electron .",
-    "test": "eslint --ext .js src"
+    "test": "eslint --ext .js src",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron-context-menu": "^0.9.1",
+    "electron-window-state": "^4.1.1",
+    "lodash.merge": "^4.6.1"
   },
   "devDependencies": {
     "electron": "1.8.2",
+    "electron-builder": "~20.0.4",
     "eslint": "^4.17.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1"
+  },
+  "build": {
+    "appId": "com.github.arslivinski.linux-teams",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "assets/**/*",
+      "app/**/*"
+    ],
+    "linux": {
+      "category": "Network;Chat",
+      "packageCategory": "net",
+      "executableName": "LinuxTeams",
+      "synopsis": "Linux Teams",
+      "description": "An unofficial Microsoft Teams application for Linux",
+      "desktop": {
+        "Name": "Linux Teams",
+        "Comment": "An unofficial Microsoft Teams application for Linux",
+        "StartupWMClass": "LinuxTeams"
+      },
+      "target": [
+        "tar.gz",
+        "rpm",
+        "deb"
+      ]
+    }
   },
   "author": "Anderson Slivinski <arslivinski@gmail.com>",
   "license": "MIT",
@@ -32,10 +66,5 @@
     "Teams",
     "Linux",
     "Electron"
-  ],
-  "dependencies": {
-    "electron-context-menu": "^0.9.1",
-    "electron-window-state": "^4.1.1",
-    "lodash.merge": "^4.6.1"
-  }
+  ]
 }
