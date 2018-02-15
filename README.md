@@ -1,4 +1,5 @@
 <img src="linux-teams.svg" alt="Logo" width="128" height="128">
+
 # Linux Teams
 Linux Teams is an unofficial Microsoft Teams application for Linux.
 
@@ -31,7 +32,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [ ] Change icon tray when there are unread notifications
   - [x] <del>Display native notifications</del>
   - [x] <del>Make notifications clickable</del>
-  - [ ] Manage window size correctly
+  - [x] <del>Manage window size correctly</del>
   - [ ] Context menu
   - [ ] Release Linux packages
   - [ ] Add auto-update
