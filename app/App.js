@@ -9,6 +9,7 @@ const ContextMenuTray = require('./menu/ContexMenuTray')
 const MenuBar = require('./menu/MenuBar')
 const Icon = require('./Icon')
 const {productName} = require('../package.json')
+require('electron-context-menu')()
 
 const preload = path.join(__dirname, 'Browser.js')
 

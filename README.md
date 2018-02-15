@@ -33,7 +33,7 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [x] <del>Display native notifications</del>
   - [x] <del>Make notifications clickable</del>
   - [x] <del>Manage window size correctly</del>
-  - [ ] Context menu
+  - [x] <del>Context menu</del>
   - [ ] Release Linux packages
   - [ ] Add auto-update
 
