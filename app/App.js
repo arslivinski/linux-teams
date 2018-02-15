@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const {app} = require('electron')
+const {app, ipcMain: ipc} = require('electron')
 const Window = require('./Window')
 const Tray = require('./Tray')
 const ContextMenuTray = require('./menu/ContexMenuTray')
@@ -10,6 +10,8 @@ const Icon = require('./Icon')
 const {productName} = require('../package.json')
 
 const preload = path.join(__dirname, 'Browser.js')
+
+global.appIcon = `file://${Icon.app}`
 
 app.on('ready', () => {
   this.window = new Window({icon: Icon.app, backgroundColor: '#5458AF', webPreferences: {preload}})
@@ -24,4 +26,9 @@ app.on('ready', () => {
     this.window.show()
     this.window.focus()
   })
+})
+
+ipc.on('notification-clicked', () => {
+  this.window.show()
+  this.window.focus()
 })

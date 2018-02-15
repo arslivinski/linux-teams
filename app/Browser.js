@@ -1,18 +1,47 @@
 'use strict'
 
 /* eslint-disable no-proto */
+/* global Notification */
 
-document.addEventListener('DOMContentLoaded', function () {
-  // enableNativeNotifications()
-})
+const {ipcRenderer: ipc} = require('electron')
 
 /**
- * Overriding some internals to enable native notifications
+ * Overriding some internals to intercept notifications
  */
-function enableNativeNotifications () {
+function registerNotificationsInterceptor () {
   const notificationsService = window.angular.element(document.body).injector().get('notificationsService')
-  notificationsService.askForPermission()
-  notificationsService.teamsIconUrl = window.jQuery('*[rel="shortcut icon"]').get(0).getAttribute('href')
-  notificationsService.__proto__.getProfileIcon = function (e) { return this.teamsIconUrl || e }
-  notificationsService.__proto__.shouldShowOnDesktop = function () { return true }
+  const showToastr = notificationsService.__proto__.showToastr
+  notificationsService.__proto__.showToastr = function () {
+    showToastr.apply(notificationsService, arguments)
+    displayNativeNotification.apply(null, arguments)
+  }
 }
+
+function displayNativeNotification (event, callback) {
+  const appIcon = require('electron').remote.getGlobal('appIcon')
+  const options = {
+    body: event.message,
+    icon: appIcon,
+    sticky: true
+  }
+  const notification = new Notification(event.title, options)
+  notification.onclick = () => {
+    callback()
+    ipc.send('notification-clicked')
+  }
+}
+
+function wait (checker, callback, interval = 500) {
+  let timeout = setTimeout(function () {
+    clearTimeout(timeout)
+    if (checker()) {
+      callback()
+    } else {
+      wait(checker, callback, interval)
+    }
+  }, interval)
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  wait(() => !!window.angular.element(document.body).injector, registerNotificationsInterceptor)
+})

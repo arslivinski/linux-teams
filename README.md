@@ -29,9 +29,8 @@ As the focus here is to create a Linux application, I'm not testing against othe
   - [x] <del>Tray icon</del>
   - [x] <del>Make tray icon clickable</del>
   - [ ] Change icon tray when there are unread notifications
-  - [ ] Display native notifications
-  - [ ] Make notifications clickable
-  - [ ] Create hotkeys
+  - [x] <del>Display native notifications</del>
+  - [x] <del>Make notifications clickable</del>
   - [ ] Manage window size correctly
   - [ ] Context menu
   - [ ] Release Linux packages
