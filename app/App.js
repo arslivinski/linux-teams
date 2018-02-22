@@ -41,8 +41,12 @@ app.on('ready', () => {
   windowState.manage(this.window)
 
   this.tray.on('click', () => {
-    this.window.show()
-    this.window.focus()
+    if (this.window.isVisible()) {
+      this.window.hide()
+    } else {
+      this.window.show()
+      this.window.focus()
+    }
   })
 })
 
