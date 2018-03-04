@@ -15,6 +15,19 @@ const preload = path.join(__dirname, 'Browser.js')
 global.appIcon = path.join(__dirname, '..', 'assets', 'app.png')
 global.unreadIcon = path.join(__dirname, '..', 'assets', 'unread.png')
 
+const isSecondInstance = app.makeSingleInstance(() => {
+  if (this.window) {
+    if (this.window.isMinimized()) {
+      this.window.restore()
+    }
+    this.window.focus()
+  }
+})
+
+if (isSecondInstance) {
+  app.quit()
+}
+
 app.on('ready', () => {
   const windowState = windowStateManager()
 
