@@ -42,7 +42,7 @@
       "desktop": {
         "Name": "Linux Teams",
         "Comment": "An unofficial Microsoft Teams application for Linux",
-        "StartupWMClass": "LinuxTeams"
+        "StartupWMClass": "Linux Teams"
       },
       "target": [
         "tar.gz",
