@@ -4,6 +4,7 @@
 /* global Notification */
 
 const {ipcRenderer: ipc} = require('electron')
+const {productName} = require('../package.json')
 
 /**
  * Overriding some internals to intercept notifications
@@ -18,15 +19,16 @@ function registerNotificationsInterceptor () {
 }
 
 function displayNativeNotification (event, callback) {
+  const title = event.title || productName
   const appIcon = require('electron').remote.getGlobal('appIcon')
   const options = {
     body: event.message,
     icon: `file://${appIcon}`,
     sticky: true
   }
-  const notification = new Notification(event.title, options)
+  const notification = new Notification(title, options)
   notification.onclick = () => {
-    callback()
+    callback && typeof callback === 'function' && callback()
     ipc.send('notification-clicked')
   }
 }
@@ -43,5 +45,5 @@ function wait (checker, callback, interval = 500) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  wait(() => !!window.angular.element(document.body).injector, registerNotificationsInterceptor)
+  wait(() => !!(window.angular && window.angular.element(document.body).injector), registerNotificationsInterceptor)
 })
