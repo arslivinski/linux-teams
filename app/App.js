@@ -18,7 +18,7 @@ global.unreadIcon = path.join(__dirname, '..', 'assets', 'unread.png')
 const isSecondInstance = app.makeSingleInstance(() => {
   if (this.window) {
     if (this.window.isMinimized()) {
-      this.window.restore()
+      this.window.show()
     }
     this.window.focus()
   }
@@ -57,7 +57,7 @@ app.on('ready', () => {
     if (!this.window.isMinimized() && this.window.isFocused()) {
       this.window.minimize()
     } else {
-      this.window.restore()
+      this.window.show()
       this.window.focus()
     }
   })
