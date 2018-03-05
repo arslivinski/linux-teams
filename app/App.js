@@ -54,10 +54,10 @@ app.on('ready', () => {
   windowState.manage(this.window)
 
   this.tray.on('click', () => {
-    if (this.window.isVisible()) {
-      this.window.hide()
+    if (!this.window.isMinimized() && this.window.isFocused()) {
+      this.window.minimize()
     } else {
-      this.window.show()
+      this.window.restore()
       this.window.focus()
     }
   })
