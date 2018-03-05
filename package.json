@@ -1,7 +1,7 @@
 {
   "name": "linux-teams",
   "productName": "Linux Teams",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An unofficial Microsoft Teams application for Linux",
   "main": "app/App.js",
   "scripts": {
