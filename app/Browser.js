@@ -4,7 +4,7 @@
 /* global Notification */
 
 const {ipcRenderer: ipc} = require('electron')
-const {productName} = require('../package.json')
+const Constants = require('./Constants')
 
 /**
  * Overriding some internals to intercept notifications
@@ -19,11 +19,10 @@ function registerNotificationsInterceptor () {
 }
 
 function displayNativeNotification (event, callback) {
-  const title = event.title || productName
-  const appIcon = require('electron').remote.getGlobal('appIcon')
+  const title = event.title || Constants.PRODUCT_NAME
   const options = {
     body: event.message,
-    icon: `file://${appIcon}`,
+    icon: `file://${Constants.APP_ICON}`,
     sticky: true
   }
   const notification = new Notification(title, options)
