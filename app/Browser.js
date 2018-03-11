@@ -33,7 +33,7 @@ function displayNativeNotification (event, callback) {
 }
 
 function wait (checker, callback, interval = 500) {
-  let timeout = setTimeout(function () {
+  let timeout = setTimeout(() => {
     clearTimeout(timeout)
     if (checker()) {
       callback()
@@ -43,6 +43,12 @@ function wait (checker, callback, interval = 500) {
   }, interval)
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   wait(() => !!(window.angular && window.angular.element(document.body).injector), registerNotificationsInterceptor)
+})
+
+ipc.on('page-title-updated', () => {
+  if (!window.angular) return
+
+  ipc.send('unread-messages', window.angular.element(document.body).controller().pageTitleNotificationCount)
 })

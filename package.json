@@ -25,9 +25,6 @@
   },
   "build": {
     "appId": "com.github.arslivinski.linux-teams",
-    "directories": {
-      "buildResources": "assets"
-    },
     "files": [
       "assets/**/*",
       "app/**/*"

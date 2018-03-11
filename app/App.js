@@ -8,7 +8,8 @@ require('electron-context-menu')()
 
 const appReady = () => {
   this.window = new Window()
-  this.window.on('page-title-updated', updateTray)
+  this.window.on('focus', windowFocus)
+  this.window.on('page-title-updated', titleChanged)
   this.window.webContents.on('new-window', handleRedirect)
 
   this.tray = new Tray()
@@ -26,12 +27,37 @@ const windowRestore = () => {
   }
 }
 
-const updateTray = (event, title) => {
-  const count = title.match(/\d+/g) ? parseInt(title.match(/\d+/g).join('')) : 0
-  if (count > 0) {
-    this.tray.setImage(Constants.UNREAD_ICON)
+const windowFocus = () => {
+  this.window.flashFrame(false)
+}
+
+const titleChanged = () => {
+  this.window.webContents.send('page-title-updated')
+}
+
+const updateCounters = (event, count) => {
+  console.log('updateCounters', count)
+  updateTray(count)
+  updateBadge(count)
+
+  if (count > 0 && !this.window.isFocused()) {
+    this.window.flashFrame(true)
+  }
+}
+
+const updateTray = (count) => {
+  if (count >= 1 && count <= 9) {
+    this.tray.setImage(Constants[`APP_ICON_UNREAD_${count}`])
+  } else if (count > 9) {
+    this.tray.setImage(Constants.APP_ICON_UNREAD_9_PLUS)
   } else {
     this.tray.setImage(Constants.APP_ICON)
+  }
+}
+
+const updateBadge = (count) => {
+  if (app.isUnityRunning()) {
+    app.setBadgeCount(count)
   }
 }
 
@@ -56,3 +82,4 @@ app.on('ready', appReady)
 app.on('window-all-closed', app.quit)
 
 ipc.on('notification-clicked', windowRestore)
+ipc.on('unread-messages', updateCounters)
