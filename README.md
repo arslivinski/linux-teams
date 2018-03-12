@@ -12,18 +12,18 @@ This project aims to solve both of this problems wrapping the Web Application on
 
 ### Fedora
 ```
-$ sudo dnf install -y linux-teams-1.0.0.x86_64.rpm
+$ sudo dnf install -y linux-teams-1.3.0.x86_64.rpm
 ```
 
 ### Ubuntu
 ```
-$ sudo apt-get install -y linux-teams_1.0.0_amd64.deb
+$ sudo apt-get install -y linux-teams_1.3.0_amd64.deb
 ```
 
 ### Other
 ```
-$ tar -zxvf linux-teams-1.0.0.tar.gz
-$ cd linux-teams-1.0.0
+$ tar -zxvf linux-teams-1.3.0.tar.gz
+$ cd linux-teams-1.3.0
 $ ./LinuxTeams
 ```
 
