@@ -52,3 +52,11 @@ ipcRenderer.on("page-title-updated", () => {
     }
   }
 });
+
+// Workaround to fix the whitescreen when launching the app
+// https://github.com/IsmaelMartinez/teams-for-linux/issues/171
+Object.defineProperty(navigator.serviceWorker, "register", {
+  value() {
+    return Promise.reject();
+  },
+});
