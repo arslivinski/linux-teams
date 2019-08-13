@@ -26,27 +26,27 @@ As I built this client for my needs, I've tested it only on my setup, which is c
 ### Ubuntu
 
 ```sh
-sudo dpkg -i linux-teams_2.0.0_amd64.deb && sudo apt install -yf
+sudo dpkg -i linux-teams_2.1.0_amd64.deb && sudo apt install -yf
 ```
 
 ### Fedora
 
 ```sh
-sudo dnf install -y linux-teams-2.0.0.x86_64.rpm
+sudo dnf install -y linux-teams-2.1.0.x86_64.rpm
 ```
 
 ### AppImage
 
 ```sh
-chmod +x linux-teams-2.0.0.AppImage
-./linux-teams-2.0.0.AppImage
+chmod +x linux-teams-2.1.0.AppImage
+./linux-teams-2.1.0.AppImage
 ```
 
 ### Other
 
 ```sh
-tar -zxf linux-teams-2.0.0.tar.gz
-cd linux-teams-2.0.0
+tar -zxf linux-teams-2.1.0.tar.gz
+cd linux-teams-2.1.0
 ./linux-teams
 ```
 
@@ -63,7 +63,7 @@ npm start
 
 ### Blank screen when launching the application
 
-When you launch the application, you get stuck on a blank screen with the title "Microsoft Teams - initializing...". This maybe occurs after a release of a new version by Microsoft. I couldn't find a solution for this yet, so for now you can workarround this by force-reloading the application. To force-reload, open the menu by pressing `Alt` and click on the option "View" > "Force Reload", or use the keyboard shortcut `Ctrl+Shift+R`.
+When you launch the application, you get stuck on a blank screen with the title "Microsoft Teams - initializing...". This maybe occurs after a release of a new version by Microsoft. I couldn't find a solution for this yet, so for now you can workarround this by force-reloading the application. To force-reload, open the menu by pressing `Alt` and click on the option "View" > "Force Reload", or use the keyboard shortcut `Ctrl+Shift+R`. If you are still seeing the blank screen, try the solution below.
 
 ### Some weird and crazy behaviour
 

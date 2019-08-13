@@ -1,5 +1,11 @@
 # Changelog
 
+## [v2.1.0](https://github.com/arslivinski/linux-teams/releases/tag/v2.1.0)
+
+- Fix some white screens when launching the app
+- Fix a ServiceWorker cache that was making the app get stuck on the blank screen [IsmaelMartinez/teams-for-linux/#171](https://github.com/IsmaelMartinez/teams-for-linux/issues/171)
+- Option to disable the auto-reload when connectivity changes to on-line
+
 ## [v2.0.0](https://github.com/arslivinski/linux-teams/releases/tag/v2.0.0)
 
 - Rewrite from scratch
