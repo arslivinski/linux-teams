@@ -44,9 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 ipcRenderer.on("page-title-updated", () => {
-  if (window.angular) {
+  if (window.angular != null) {
     const controller = window.angular.element(document.body).controller();
-    const count = controller.pageTitleNotificationCount;
-    ipcRenderer.send("unread-messages", count);
+    if (controller != null) {
+      const count = controller.pageTitleNotificationCount || 0;
+      ipcRenderer.send("unread-messages", count);
+    }
   }
 });
