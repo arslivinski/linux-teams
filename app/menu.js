@@ -115,8 +115,20 @@ module.exports = Menu.buildFromTemplate([
         type: "separator",
       },
       {
+        label: "Auto reload when on-line",
+        sublabel: "Reload the app when the connectivity changes to on-line",
+        type: "checkbox",
+        checked: config.get("autoReload"),
+        click() {
+          config.set("autoReload", !config.get("autoReload"));
+        },
+      },
+      {
+        type: "separator",
+      },
+      {
         label: "Check for updates on startup",
-        sublabel: "Checked only once per day",
+        sublabel: "Checked only once a day",
         type: "checkbox",
         checked: config.get("checkForUpdates"),
         click() {

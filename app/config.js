@@ -28,6 +28,10 @@ module.exports = new Store({
       type: "boolean",
       default: false,
     },
+    autoReload: {
+      type: "boolean",
+      default: true,
+    },
     checkForUpdates: {
       type: "boolean",
       default: true,

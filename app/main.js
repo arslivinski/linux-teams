@@ -128,7 +128,7 @@ ipcMain.on("notification-clicked", () => {
 });
 
 ipcMain.on("conectivity-changed", (event, isOnline, wasOnline) => {
-  if (isOnline && !wasOnline) {
+  if (isOnline && !wasOnline && config.get("autoReload")) {
     window.reload();
   }
 });
